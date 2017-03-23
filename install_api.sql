@@ -32,7 +32,7 @@ begin
 	end if;
 
 	res = psql_translate.py_google(
-		current_setting('google_translate.api_key'), source, target, q);
+		current_setting('google.api_key'), source, target, q);
 
 	if not res.success then
 	   raise exception 'Failed: %, query: %', res.message, q;
