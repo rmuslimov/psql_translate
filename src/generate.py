@@ -3,13 +3,15 @@
 import os
 
 FUNCTIONS_TO_GENERATE = (
-    'google_translate',
+    'google',
 )
 
 TEMPLATE = (
-    'create or replace function {name}(value text) returns text as $$'
+    'create or replace function psql_translate.py_{name}'
+    '(key text, source char(2), target char(2), value text) '
+    'returns psql_translate.response as $$\n'
     '{source}'
-    'return main(value)'
+    'return main(key, source, target, value)\n'
     '$$ language plpython2u volatile;'
 )
 
